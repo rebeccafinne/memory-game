@@ -1,8 +1,13 @@
-import "./App.css";
-import { MemoryView } from "./MemoryView";
+import { Header } from "./components/Header";
+import { MemoryView } from "./View/MemoryView";
 
 function App() {
-  return <MemoryView />;
+  return (
+    <>
+      <Header />
+      <MemoryView />
+    </>
+  );
 }
 
 export default App;
