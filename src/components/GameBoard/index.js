@@ -1,5 +1,13 @@
+import { Card } from "./Card";
+import { GameBoardContainer } from "./index.style";
+
 export const GameBoard = () => {
   return (
-    <div style={{ gridColumnStart: 3, gridColumnEnd: 5 }}>GameBoard!!</div>
+    <GameBoardContainer>
+      <Card />
+      <Card /> <Card /> <Card /> <Card /> <Card /> <Card /> <Card /> <Card />{" "}
+      <Card /> <Card />
+      <Card />
+    </GameBoardContainer>
   );
 };
