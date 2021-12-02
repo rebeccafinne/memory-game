@@ -1,8 +1,8 @@
-import { GameBoard } from "../components/GameBoard";
-import { ScoreContainer } from "../components/ScoreContainer";
 import { StyledContainer } from "./MemoryView.style";
+import GameBoard from "../components/GameBoard";
+import ScoreContainer from "../components/ScoreContainer";
 
-export const MemoryView = () => {
+const MemoryView = () => {
   return (
     <StyledContainer>
       <ScoreContainer />
@@ -10,3 +10,5 @@ export const MemoryView = () => {
     </StyledContainer>
   );
 };
+
+export default MemoryView;
