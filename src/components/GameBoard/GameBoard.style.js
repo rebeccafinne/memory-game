@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 export const GameBoardContainer = styled.div`
   width: 100%;
@@ -10,6 +10,6 @@ export const GameBoardContainer = styled.div`
     grid-template-columns: repeat(2, 1fr);
   }
   @media (min-width: 900px) {
-    grid-template-columns: repeat(3, 1fr);
-  } ;
+    grid-template-columns: repeat(4, 1fr);
+  }
 `;

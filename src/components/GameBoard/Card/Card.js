@@ -1,19 +1,16 @@
-import { CardItem } from "./Card.style";
-import { useState } from "react";
+import { CardItem } from './Card.style';
 
-const Card = ({ motive, id }) => {
-  const [isFlipped, setIsFlipped] = useState(false);
-  const [isDisabled, setIsDisabled] = useState(false);
+const Card = ({ motive, id, handleCardClick, isDisabled, isFlipped }) => {
+  const card = {
+    motive: motive,
+    id: id,
+    isDisabled: isDisabled,
+    isFlipped: isFlipped,
+  };
 
   const handleClick = () => {
-    if (isDisabled) {
-      return;
-    }
-    console.log("id on card", id);
-    setIsFlipped(!isFlipped);
-    setIsDisabled(!isDisabled);
+    handleCardClick(card);
   };
-  console.log(motive);
 
   return (
     <CardItem onClick={handleClick} isFlipped={isFlipped}>
@@ -22,7 +19,7 @@ const Card = ({ motive, id }) => {
           id={id}
           src={motive}
           alt="puppy1"
-          style={{ width: "100%", height: "100%", maxHeight: "10rem" }}
+          style={{ width: '100%', height: '100%', maxHeight: '10rem' }}
         />
       )}
     </CardItem>
