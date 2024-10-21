@@ -14,7 +14,9 @@ const GameBoard = ({ playerScored, handleNewTurn }) => {
   const [secondCard, setSecondCard] = useState(null);
   const [flippedCards, setFlippedCards] = useState([]);
 
-  const cardContent = [
+  const [cardContent, setCardContent] = useState([]);
+
+  const initialCards = [
     { id: '11', motive: puppy1 },
     { id: '12', motive: puppy1 },
     { id: '21', motive: puppy2 },
@@ -30,8 +32,8 @@ const GameBoard = ({ playerScored, handleNewTurn }) => {
   ];
 
   useEffect(() => {
-    cardContent.sort(() => Math.random() - 0.5);
-  });
+    setCardContent(initialCards.sort(() => Math.random() - 0.5));
+  }, []);
 
   const handleCardClick = (item) => {
     if (!flippedCards.includes(item.id)) {
@@ -50,13 +52,15 @@ const GameBoard = ({ playerScored, handleNewTurn }) => {
         resetThisRoundFlippedCards();
         playerScored();
       } else {
-        setFlippedCards(
-          flippedCards.filter(
-            (id) => id !== firstCard.id && id !== secondCard.id
-          )
-        );
-        resetThisRoundFlippedCards();
-        handleNewTurn();
+        setTimeout(() => {
+          setFlippedCards(
+            flippedCards.filter(
+              (id) => id !== firstCard.id && id !== secondCard.id
+            )
+          );
+          resetThisRoundFlippedCards();
+          handleNewTurn();
+        }, 1000);
       }
     }
   }, [firstCard, secondCard, playerScored, handleNewTurn, flippedCards]);
@@ -68,16 +72,17 @@ const GameBoard = ({ playerScored, handleNewTurn }) => {
 
   return (
     <GameBoardContainer>
-      {cardContent.map((card) => (
-        <Card
-          key={card.id}
-          id={card.id}
-          motive={card.motive}
-          handleCardClick={handleCardClick}
-          isDisabled={card.isDisabled}
-          isFlipped={flippedCards.find((id) => id === card.id)}
-        />
-      ))}
+      {cardContent &&
+        cardContent.map((card) => (
+          <Card
+            key={card.id}
+            id={card.id}
+            motive={card.motive}
+            handleCardClick={handleCardClick}
+            isDisabled={card.isDisabled}
+            isFlipped={flippedCards.find((id) => id === card.id)}
+          />
+        ))}
     </GameBoardContainer>
   );
 };
