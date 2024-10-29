@@ -4,7 +4,7 @@ export const CardItem = styled.button`
   background: ${({ isFlipped }) => (isFlipped ? '#faf6f7' : '#534447')};
   padding: 1rem;
   width: 10rem;
-  height: 12rem;
+  height: 10rem;
   transform-style: preserve-3d;
   transition: transform 0.6s;
   transform: ${({ isFlipped }) =>

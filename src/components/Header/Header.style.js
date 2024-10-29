@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 export const StyledHeader = styled.div`
   background-color: #a6888f;
@@ -7,9 +7,10 @@ export const StyledHeader = styled.div`
   text-align: center;
   display: flex;
   align-items: center;
+  padding: 1rem 0 1rem 0;
 `;
 
-export const StyledHeaderText = styled.h2`
+export const StyledHeaderText = styled.h1`
   margin: auto;
   align-self: center;
 `;
