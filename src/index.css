@@ -24,3 +24,22 @@ code {
 .margin-left {
   margin-left: 1rem;
 }
+
+button {
+    background-color: #8b6a6f;
+    border: none;
+    box-shadow: 10px 10px 5px #7a585e;
+    width: -webkit-fill-available;
+    max-width: 360px;
+    height: 3rem;
+    font-weight: 600;
+
+}
+
+button:hover {
+    box-shadow: 12px 12px 5px #7a585e;
+    text-decoration: underline;
+  }
+  
+
+

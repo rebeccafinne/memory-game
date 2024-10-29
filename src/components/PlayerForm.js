@@ -1,30 +1,33 @@
-import { usePlayerNameContext } from '../Context/GameContext'; // Importera din hook
+import { Button } from './Button';
+import { usePlayerNameContext } from '../Context/GameContext';
 
-export const PlayerForm = () => {
+export const PlayerForm = ({ onClick }) => {
   const { state, setState } = usePlayerNameContext();
 
   const handleStartGame = (event) => {
     event.preventDefault();
+
     setState({
       ...state,
       playerOneName: event.target.playerOne.value,
       playerTwoName: event.target.playerTwo.value,
     });
+    onClick();
   };
 
   return (
     <form onSubmit={handleStartGame}>
       <label id="playerOneName" className="margin-top">
-        Enter name for player one:
+        Player one:
       </label>
       <input className="margin-top margin-left" name="playerOne"></input>
       <br />
       <label id="playerTwoName" className="margin-top ">
-        Enter name for player two:
+        Player two:
       </label>
       <input className="margin-top margin-left" name="playerTwo"></input>
       <br />
-      <button type="submit">Start Game</button>
+      <Button type="submit">Start Game</Button>
     </form>
   );
 };
